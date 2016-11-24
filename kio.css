@@ -1,0 +1,36 @@
+@font-face {
+  // Copyright (c) 2016 by Athinkra (designed by Jason Glavy, 2016)
+  // with Reserved Font Name JG Bamum Akauku Sans Unicode.
+  // https://github.com/athinkra/bamum
+  font-family: 'JGBamum';
+  src: url('JGBamumAkaukuSansUnicode.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'NotoBamum';
+  // This Font Software is licensed under the SIL Open Font License,
+  // Version 1.1.
+  // https://www.google.com/get/noto/
+  src: url('NotoSansBamum-Regular.ttf') format('truetype');
+}
+
+#kio-svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.kio-label {
+    font-size: 50px;
+    user-select: none;
+}
+
+svg[data-kio-font='jgbamum'] .kio-label {
+    font-family: JGBamum;
+}
+
+svg[data-kio-font='notobamum'] .kio-label {
+    font-family: NotoBamum;
+}
