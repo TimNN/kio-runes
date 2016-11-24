@@ -34,3 +34,10 @@ svg[data-kio-font='jgbamum'] .kio-label {
 svg[data-kio-font='notobamum'] .kio-label {
     font-family: NotoBamum;
 }
+
+#settings {
+    z-index: 1;
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+}

@@ -57,3 +57,18 @@ const svg_loaded = (svg) => {
 
     window.onhashchange = hash_changed;
 }
+
+const next_font = () => {
+    const names = ['jgbamum', 'notobamum'];
+
+    const prev_hash = window.location.hash.slice(1);
+    const idx = prev_hash.indexOf(':');
+    const name = prev_hash.slice(0, idx);
+    const chars = prev_hash.slice(idx);
+
+    const next_font_idx = (names.indexOf(name) + 1) % names.length;
+
+    const new_hash = '#' + names[next_font_idx] + chars;
+
+    window.location.hash = new_hash;
+}
