@@ -37,19 +37,65 @@ const load_from_hash = (doc) => {
 }
 
 const hash_changed = () => {
+    if (updating) {
+        updating = false;
+        return;
+    }
+
     const svg = document.getElementById('kio-svg');
     const doc = svg.contentDocument;
 
     load_from_hash(doc);
 }
 
+const find_parent_with_class = (el, cls) => {
+    while (el && !el.classList.contains(cls)) {
+        el = el.parentElement;
+    }
+
+    return el;
+}
+
+const svg_doc = () => {
+    return document.getElementById('kio-svg').contentDocument;
+}
+
+const current_font = () => {
+    return svg_doc().getElementById('kio-svg-root').getAttribute('data-kio-font');
+}
+
 const svg_loaded = (svg) => {
     const doc = svg.contentDocument;
     const labels = get_labels(doc);
 
+    let selected = null;
+
     for (const lab of labels) {
         lab.addEventListener('click', (ev) => {
-            console.log(ev.target.parentElement);
+            const lab = find_parent_with_class(ev.target, 'kio-label');
+
+            if (!lab) throw { msg: "invalid click target!", ev: ev }
+
+            if (selected == lab) {
+                selected.classList.remove('selected');
+                selected = null;
+            } else if (!selected) {
+                selected = lab;
+                selected.classList.add('selected');
+            } else {
+                const tmp = lab.children[0].textContent;
+                lab.children[0].textContent = selected.children[0].textContent;
+                selected.children[0].textContent = tmp;
+                selected.classList.remove('selected');
+                selected = null;
+
+                const enc = get_labels(svg_doc()).map(el => el.children[0].textContent.codePointAt(0)).map(cp => cp.toString(16)).join(':');
+
+                const hash = '#' + current_font() + ':' + enc;
+
+                updating = true;
+                window.location.hash = hash;
+            }
         })
     }
 

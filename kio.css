@@ -25,6 +25,11 @@
 .kio-label {
     font-size: 50px;
     user-select: none;
+    cursor: pointer;
+}
+
+.kio-label.selected {
+    fill: #197704;
 }
 
 svg[data-kio-font='jgbamum'] .kio-label {
