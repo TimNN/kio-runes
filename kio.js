@@ -36,6 +36,8 @@ const load_from_hash = (doc) => {
     }
 }
 
+let updating = false;
+
 const hash_changed = () => {
     if (updating) {
         updating = false;
