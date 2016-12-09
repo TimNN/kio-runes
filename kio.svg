@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?xml-stylesheet type="text/css" href="kio.css"?>
 <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet" viewBox="0 0 2614 1705" id="kio-svg-root">
+    <style type="text/css">
+        .kio-label {
+            font-size: 38pt;
+        }
+    </style>
     <rect x="0" y="0" width="2614" height="1705" style="fill: #f8fcff; stroke: #000000"/>
     <g style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1" id="g14897" transform="translate(107,80.999997)">
         <g id="g12640" transform="translate(1225.8796,0.429815)">

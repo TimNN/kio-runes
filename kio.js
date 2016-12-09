@@ -134,7 +134,9 @@ const download_str_as = (str_data, name, content_type) => {
 
         dla.click();
 
-        URL.revokeObject(url);
+        URL.revokeObjectURL(url);
+
+        dla.remove();
 }
 
 const download = () => {
