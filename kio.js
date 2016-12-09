@@ -120,3 +120,25 @@ const next_font = () => {
 
     window.location.hash = new_hash;
 }
+
+const download_str_as = (str_data, name, content_type) => {
+        let blob = new Blob([str_data], { type: 'content_type' });
+        let url = URL.createObjectURL(blob);
+
+        let dla = document.createElement('a');
+        dla.style = 'display: none';
+        document.body.appendChild(dla);
+
+        dla.href = url;
+        dla.download = name;
+
+        dla.click();
+
+        URL.revokeObject(url);
+}
+
+const download = () => {
+    svg = svg_doc();
+    root = svg.rootElement;
+    download_str_as(root.outerHTML, 'kio.svg', 'image/svg+xml');
+}
